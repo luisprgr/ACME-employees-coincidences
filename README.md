@@ -38,6 +38,33 @@ OUTPUT:
 RENE-ASTRID: 3
 ```
 
+## Solution
+
+### Design Patterns used
+
+* Object Oriented pattern
+* Facade Pattern 
+
+### Solution description
+
+My solution basically consists of the following steps:
+
+1) Analyze the input for errors before parsing
+2) Convert the lines with the user information into "employee" objects that store the name and the schedule 
+3) From these objects I analyze the cases where the schedules of two employees indicate that they are in the office at the same time, these cases are:
+- The schedules are exactly the same
+- The beginning of the first schedule is between the beginning and the end of the second one
+- The end of the first schedule is between the start and end of the second schedule 
+- The beginning of the second schedule is between the beginning and the end of the first schedule
+- The end of the second schedule is between the beginning and the end of the first schedule 
+- The first schedule is between the times of the second schedule
+- The second schedule is between the times of the first schedule
+
+    If the employees' schedules fall into these cases increase their overlaps by one
+
+4) All these processes are stored and performed from a class "EmployeesScheduleComparator" that gives to the programmer who will use the class a simple way to perform the above mentioned processes and would also allow to reuse these processes with other types of inputs, besides the .txt file, since the logic for data input is separated from its processing.
+
+
 ## How to run the code
 
 ### Requirements:
